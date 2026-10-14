@@ -1,0 +1,13 @@
+.env
+.venv/
+venv/
+__pycache__/
+*.pyc
+*.db
+local.properties
+.gradle/
+build/
+app/build/
+
+/backend_backup/
+/frontend_backup/

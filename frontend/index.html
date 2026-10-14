@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phone Recovery</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet"href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+</head>
+<body>
+
+<div class="app">
+
+    <section id="loginScreen" class="screen">
+        <div class="login-card">
+            <div class="logo">PR</div>
+            <h1>Phone Recovery</h1>
+            <p class="subtitle">Secure access to your devices</p>
+
+            <form id="loginForm">
+                <label>Recovery ID</label>
+                <input id="recoveryId" type="text" placeholder="PR-XXXX-XXXX" required>
+
+                <label>Password</label>
+                <input id="password" type="password" placeholder="Password" required>
+
+                <button type="submit">Login</button>
+            </form>
+
+            <p id="loginMessage" class="message"></p>
+        </div>
+    </section>
+
+    <section id="dashboardScreen" class="screen hidden">
+
+        <header class="topbar">
+            <div>
+                <span class="brand">Phone Recovery</span>
+                <span class="dashboard-label">Dashboard</span>
+            </div>
+            <button id="logoutBtn" class="logout">Logout</button>
+        </header>
+
+        <main class="dashboard">
+
+            <div class="welcome">
+                <div>
+                    <h2>My Devices</h2>
+                    <p>Your registered phones and their recovery status.</p>
+                </div>
+                <button id="refreshBtn" class="secondary">Refresh</button>
+            </div>
+
+            <p id="dashboardMessage" class="message"></p>
+
+            <div id="devicesGrid" class="devices-grid"></div>
+
+            <section id="devicePanel" class="device-panel hidden">
+
+                <div class="panel-header">
+                    <div>
+                        <p class="small-label">SELECTED DEVICE</p>
+                        <h2 id="deviceName">-</h2>
+                        <p id="deviceModel">-</p>
+                    </div>
+                    <span id="deviceStatus" class="status">-</span>
+                </div>
+
+                <div class="info-grid">
+                    <div class="info-box">
+                        <span>Device ID</span>
+                        <strong id="deviceId">-</strong>
+                    </div>
+
+                    <div class="info-box">
+                        <span>Last Seen</span>
+                        <strong id="lastSeen">-</strong>
+                    </div>
+
+                    <div class="info-box">
+                        <span>Registered</span>
+                        <strong id="registeredAt">-</strong>
+                    </div>
+                </div>
+
+                <div class="location-card"> <div id="map" class="map"></div>
+                    <div>
+                        <p class="small-label">LATEST LOCATION</p>
+                        <h3 id="locationText">No location available</h3>
+                    </div>
+                    <span id="accuracyText"></span>
+                </div>
+
+                <div class="actions">
+                    <button id="historyBtn" class="secondary">
+                        Location History
+                    </button>
+
+                    <button id="lostBtn" class="danger">
+                        Mark as Lost
+                    </button>
+                </div>
+
+                <div id="historyPanel" class="history-panel hidden">
+                    <h3>Location History</h3>
+                    <div id="historyList"></div>
+                </div>
+
+            </section>
+
+        </main>
+    </section>
+
+</div>
+
+<script src="app.js"></script>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+</body>
+</html>
